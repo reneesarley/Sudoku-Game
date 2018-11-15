@@ -1,10 +1,32 @@
-.gameboard{
-  border: 2px solid black;
-}
-
 .numberBox{
-  border: 1px solid black;
+  border: .5px solid grey;
+  text-align: center;
+  padding-top: 5px;
+  min-height: 35px;
+  min-width: 35px;
 }
 
-.boxRight{
-border-right: 2px solid black}
+.outerLeft{
+  border-left: 3px solid black
+}
+.outerRight{
+  border-right: 3px solid black;
+}
+.outerTop{
+  border-top: 3px solid black;
+}
+.outerBottom{
+  border-bottom: 3px solid black;
+}
+
+.innerRight{
+  border-right: 1.5px solid black;
+}
+.innerBottom{
+  border-bottom: 1.5px solid black;
+
+}
+
+.rowBuffer{
+  border-top: none;
+}
