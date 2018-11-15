@@ -9,10 +9,12 @@ import { NumberInput } from '../number-input';
 export class GameboardComponent implements OnInit {
   solution: number[];
   playerInput:  NumberInput[] = [];
-  viewableSolution: number[] = [3,9,71]
+  difficultyLevels: number[] = [30, 27, 22];
+  selectedDifficulty: string = 'easy';
+  viewableSolution: number[] =[];
   // selectedNumber: number = 2;
   getNumberSet(): void{
-    this.solution = [1,2,3,4,5,6,7,8,9,
+    this.solution = [1,2,3,9,5,6,7,8,9,
                       1,2,3,4,5,6,7,8,9,
                       1,2,3,4,5,6,7,8,9,
                       1,2,3,4,5,6,7,8,9,
@@ -23,17 +25,32 @@ export class GameboardComponent implements OnInit {
                       1,2,3,4,5,6,7,8,9]
   }
 
-  initialPlayerInput(){
+  buildInitialGameboard(){
     for (let i = 0; i< this.solution.length; i++){
       let numberInput: NumberInput = new NumberInput;
       if(this.viewableSolution.includes(i)){
-        console.log('in the if statement')
         numberInput.guess=this.solution[i];
-        console.log("the numberInput guess =" + numberInput.guess)
       }
       this.playerInput.push(numberInput);
     }
-    console.log(this.playerInput.length)
+  }
+
+  setViewableSolution(){
+    let randomIndex: number;
+    let numbersShown: number;
+    let counter: number = 0;
+    if(this.selectedDifficulty === 'easy'){
+      numbersShown = 50;
+    }
+    while(counter<numbersShown){
+      randomIndex = Math.floor(Math.random() * 80) + 0;
+      console.log("initial randomIndex" + randomIndex);
+      if(!this.viewableSolution.includes(randomIndex){
+        this.viewableSolution.push(randomIndex);
+        console.log();
+        counter ++
+      }
+    }
   }
 
   constructor() {
@@ -41,7 +58,8 @@ export class GameboardComponent implements OnInit {
 
   ngOnInit() {
     this.getNumberSet();
-    this.initialPlayerInput();
+    this.setViewableSolution();
+    this.buildInitialGameboard();
 
   }
 }

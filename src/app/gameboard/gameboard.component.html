@@ -1,9 +1,6 @@
 <div class="container">
   <div>
   </div>
-  <div>
-    {{playerInput[9].guess}}
-  </div>
   <ng-container *ngFor="let number of playerInput; let i = index">
     <div *ngIf="(i+1)%9===0">
       <div class="row">
