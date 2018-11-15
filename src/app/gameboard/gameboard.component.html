@@ -1,12 +1,11 @@
 <div class="container">
   <div>
-    {{playerInput[0].guess}}
   </div>
-  <ng-container *ngFor="let number of numberSet; let i = index">
+  <ng-container *ngFor="let number of solution; let i = index">
     <div *ngIf="(i+1)%9===0">
       <div class="row">
         <div class=" col-1 rowBuffer"></div>
-        <ng-container *ngFor="let number of numberSet; let j = index">
+        <ng-container *ngFor="let number of solution; let j = index">
             <input [(ngModel)]="number "*ngIf="j<=i && j > i-9" class="col-1 numberBox" [class.outerLeft]="(j%9)===0"
             [class.outerRight]="(j+1)%9===0"
             [class.outerTop]= "j<9"

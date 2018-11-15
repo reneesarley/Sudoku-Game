@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PlayerInput } from './player-input';
-import { NumberInput } from './number-input';
+import { NumberInput } from '../number-input';
 
 @Component({
   selector: 'app-gameboard',
@@ -8,12 +7,12 @@ import { NumberInput } from './number-input';
   styleUrls: ['./gameboard.component.css']
 })
 export class GameboardComponent implements OnInit {
-  numberSet: number[];
-  playerInput:  NumberInput[]= [{guess: 20, notes:[1,2,3],correct:false;},
-                        {guess: 4, notes:[1,2,3], correct:false}];
+  solution: number[];
+  playerInput:  NumberInput[] = [];
+  viewableSolution: number[];
   // selectedNumber: number = 2;
   getNumberSet(): void{
-    this.numberSet = [1,2,3,4,5,6,7,8,9,
+    this.solution = [1,2,3,4,5,6,7,8,9,
                       1,2,3,4,5,6,7,8,9,
                       1,2,3,4,5,6,7,8,9,
                       1,2,3,4,5,6,7,8,9,
@@ -24,14 +23,15 @@ export class GameboardComponent implements OnInit {
                       1,2,3,4,5,6,7,8,9]
   }
 
-  filterNumber(number: number){
-    return number === 9;
+  constructor() {
   }
-
-  constructor() { }
 
   ngOnInit() {
     this.getNumberSet();
+    let numberInput: NumberInput = new NumberInput;
+    while (this.playerInput.length<81{
+      this.playerInput.push(numberInput);
+    }
+    console.log(this.playerInput.length)
   }
-
 }
