@@ -1,4 +1,7 @@
 <div class="container">
+  <div>
+    {{playerInput[0].guess}}
+  </div>
   <ng-container *ngFor="let number of numberSet; let i = index">
     <div *ngIf="(i+1)%9===0">
       <div class="row">
