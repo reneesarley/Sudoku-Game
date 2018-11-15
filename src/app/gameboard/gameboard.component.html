@@ -14,6 +14,7 @@
             [class.innerBottom]="i===26 || i===53"
             [class.correct]="input.correct===true"
             [class.incorrect]="input.correct===false && input.guess!=null"
+            [attr.disabled]="input.correct? '':null"
             />
         </ng-container>
         <div class="col-2 rowBuffer"></div>
