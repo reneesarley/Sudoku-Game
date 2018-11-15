@@ -8,8 +8,6 @@
 
 _This application will function like a traditional Sudoku game. Each 3x3 square, each row and each column will have each digit from 1-9, digits cannot be duplicated within a 3x3 square, row or column. Users can toggle between typing notes or actual guesses within each square. Guesses will be checked once typed. Notes will be ignored until converted to guesses. If a guess is incorrect it will be colored red, if it is correct it will be colored green. Once the board is filled in with all the correct guesses the player wins._
 
-
-
 ## Setup/Installation Requirements
 
 * _Download the github repo_

@@ -1,5 +1,6 @@
 .numberBox{
   border: .5px solid grey;
+  background-color: white;
   text-align: center;
   padding-top: 5px;
   min-height: 35px;
@@ -24,9 +25,14 @@
 }
 .innerBottom{
   border-bottom: 1.5px solid black;
-
 }
 
+.correct{
+  background-color: beige;
+}
+.incorrect{
+  background-color: red;
+}
 .rowBuffer{
   border-top: none;
 }
