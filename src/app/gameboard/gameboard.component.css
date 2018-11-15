@@ -1,0 +1,10 @@
+.gameboard{
+  border: 2px solid black;
+}
+
+.numberBox{
+  border: 1px solid black;
+}
+
+.boxRight{
+border-right: 2px solid black}
