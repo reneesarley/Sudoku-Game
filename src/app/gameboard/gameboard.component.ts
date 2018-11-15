@@ -9,7 +9,7 @@ import { NumberInput } from '../number-input';
 export class GameboardComponent implements OnInit {
   solution: number[];
   playerInput:  NumberInput[] = [];
-  viewableSolution: number[];
+  viewableSolution: number[] = [0,9,71]
   // selectedNumber: number = 2;
   getNumberSet(): void{
     this.solution = [1,2,3,4,5,6,7,8,9,
@@ -29,7 +29,7 @@ export class GameboardComponent implements OnInit {
   ngOnInit() {
     this.getNumberSet();
     let numberInput: NumberInput = new NumberInput;
-    while (this.playerInput.length<81{
+    for (let i = 0; i< this.solution.length; i++){
       this.playerInput.push(numberInput);
     }
     console.log(this.playerInput.length)
