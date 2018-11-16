@@ -14,7 +14,7 @@ export class GameboardComponent implements OnInit {
   viewableSolution: number[] =[];
   // selectedNumber: number = 2;
   getSolution(): void{
-    this.solution = [1,2,3,9,5,6,7,8,9,
+    this.solution = [1,2,3,4,5,6,7,8,9,
                     1,2,3,4,5,6,7,8,9,
                     1,2,3,4,5,6,7,8,9,
                     1,2,3,4,5,6,7,8,9,
@@ -57,11 +57,16 @@ export class GameboardComponent implements OnInit {
   }
 
   checkGuess(input: NumberInput, index: number){
-    if(this.solution[index] === this.playerInput[index].guess){
+    console.log("players move "+this.playerInput[index].correct)
+    console.log("solution is " + this.solution[index])
+    if(this.playerInput[index].guess == this.solution[index]){
       console.log('matches')
-      this.playerInput.correct = true;
+      this.playerInput[index].correct = true;
+      document.getElementById(index).addAttribute("class","correct");
+
+      console.log(this.playerInput[index].correct)
     }
-    this.playerInput.correct = false;
+    this.playerInput[index].correct = false;
   }
 
   constructor() {
