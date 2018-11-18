@@ -32,7 +32,7 @@ _This application will function like a traditional Sudoku game. Each 3x3 square,
 
 ## Known Bugs
 
-_No known bugs at this time._
+_Incorrect guess, changed to correct guess, 'incorrect' class does not get removed from element_
 
 ## Support and contact details
 

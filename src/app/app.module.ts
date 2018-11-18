@@ -9,7 +9,7 @@ import { NumberBoxComponent } from './number-box/number-box.component';
   declarations: [
     AppComponent,
     GameboardComponent,
-    NumberBoxComponent
+    NumberBoxComponent,
   ],
   imports: [
     BrowserModule,
