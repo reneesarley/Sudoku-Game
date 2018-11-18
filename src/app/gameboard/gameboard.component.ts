@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NumberInput } from '../number-input';
-import { SOLUTIONS } from '../solutions';
+import { SolutionService } from '../solution.service'
 
 @Component({
   selector: 'app-gameboard',
@@ -15,8 +15,9 @@ export class GameboardComponent implements OnInit {
   viewableSolution: number[] =[];
   selectedNumber: NumberInput;
   gameWon: boolean = false;
+
   getSolution(): void{
-    this.solution = SOLUTIONS[0].numbers;
+    this.solution = this.solutionService.getSolutions()[0].numbers;
   }
 
   buildInitialGameboard(){
@@ -67,7 +68,7 @@ export class GameboardComponent implements OnInit {
     }
   }
 
-  constructor() {
+  constructor(private solutionService: SolutionService) {
   }
 
   ngDoCheck()	{
