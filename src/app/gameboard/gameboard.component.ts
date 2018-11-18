@@ -17,7 +17,8 @@ export class GameboardComponent implements OnInit {
   gameWon: boolean = false;
 
   getSolution(): void{
-    this.solution = this.solutionService.getSolutions()[0].numbers;
+    this.solutionService.getSolutions()
+    .subscribe(solutions => this.solution = solutions[0].numbers)
   }
 
   buildInitialGameboard(){
