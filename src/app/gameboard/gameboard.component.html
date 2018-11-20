@@ -1,7 +1,8 @@
 <div class="container">
   <div>
+    {{dbTest}}
   </div>
-  <ng-container *ngFor="let number of playerInput; let i = index">
+  <ng-container *ngFor="let number of playerInput let i = index">
     <div *ngIf="(i+1)%9===0">
       <div class="row">
         <div class=" col-1 rowBuffer"></div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NumberInput } from '../number-input';
 import { SolutionService } from '../solution.service'
+import { FirebaseListObservable } from 'angularfire2/database';
+
 
 @Component({
   selector: 'app-gameboard',
@@ -8,7 +10,7 @@ import { SolutionService } from '../solution.service'
   styleUrls: ['./gameboard.component.css']
 })
 export class GameboardComponent implements OnInit {
-  solution: number[];
+  solution: FirebaseListObservable<any[]>;
   playerInput:  NumberInput[] = [];
   difficultyLevels: number[] = [30, 27, 22];
   selectedDifficulty: string = 'easy';
@@ -17,12 +19,12 @@ export class GameboardComponent implements OnInit {
   gameWon: boolean = false;
 
   getSolution(): void{
-    this.solutionService.getSolutions()
-    .subscribe(solutions => this.solution = solutions[0].numbers)
+    this.solutionService.getSolution()
+    .subscribe(solution => this.solution = solution)
   }
 
   buildInitialGameboard(){
-    for (let i = 0; i< this.solution.length; i++){
+    for (let i = 0; i< 80; i++){
       let numberInput: NumberInput = new NumberInput;
       if(this.viewableSolution.includes(i)){
         numberInput.guess=this.solution[i];
@@ -54,7 +56,7 @@ export class GameboardComponent implements OnInit {
 
   checkBoard(){
     let amountTrue: number = 0;
-    for(let i = 0; i< this.solution.length; i++){
+    for(let i = 0; i< 80; i++){
       if(this.solution[i] == this.playerInput[i].guess){
         this.playerInput[i].correct = true;
         amountTrue ++;
@@ -70,15 +72,22 @@ export class GameboardComponent implements OnInit {
   }
 
   constructor(private solutionService: SolutionService) {
+
   }
 
   ngDoCheck()	{
-    this.checkBoard();
+    // this.checkBoard();
   }
 
   ngOnInit() {
-    this.getSolution();
-    this.setViewableSolution();
-    this.buildInitialGameboard();
+    this.solutionService.solutions.subscribe(solutions => {
+      this.solution = solutions[0].numbers;
+      console.log(this.solution);
+      this.setViewableSolution();
+      this.buildInitialGameboard();
+    })
+
+    // this.getSolution();
+
   }
 }
