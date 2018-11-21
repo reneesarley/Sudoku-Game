@@ -20,7 +20,8 @@ export class GameboardComponent implements OnInit {
   noteModeOn: boolean = false;
 
   startNewGame(difficultyLevel: string){
-   this.playerInput= [];
+   this.playerInput = [];
+   console.log('current playerInput is' + this.playerInput);
     this.difficultyLevel= difficultyLevel;
     this.solutionService.solutions.subscribe(solutions => {
       this.solution = solutions[0].numbers;
@@ -31,6 +32,7 @@ export class GameboardComponent implements OnInit {
   }
 
   setViewableSolution(){
+    this.viewableSolution = [];
     let randomIndex: number;
     let numbersShown: number = 0;
     let counter: number = 0;
@@ -44,10 +46,12 @@ export class GameboardComponent implements OnInit {
       numbersShown = 20;
     }
     console.log(numbersShown)
-    for(let i =0; i<numbersShown; i++){
+    while(counter<numbersShown){
       randomIndex = Math.floor(Math.random() * 81) + 0;
       if(!this.viewableSolution.includes(randomIndex)){
         this.viewableSolution.push(randomIndex);
+        counter = counter + 1;
+        console.log(counter);
       }
     }
     console.log("the viewable solution is:")
@@ -67,7 +71,8 @@ export class GameboardComponent implements OnInit {
   }
 
   toggleNotesWithGuess(noteMode: boolean){
-    console.log(noteMode);
+    this.noteModeOn=noteMode;
+    console.log(this.noteModeOn);
   }
 
 
@@ -95,7 +100,7 @@ export class GameboardComponent implements OnInit {
   }
 
   ngDoCheck()	{
-    this.checkBoard();
+    // this.checkBoard();
   }
 
   ngOnInit() {
