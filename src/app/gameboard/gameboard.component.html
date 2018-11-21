@@ -18,7 +18,7 @@
               [class.incorrect]="input.correct===false"
               [attr.disabled]="input.correct? '':null"
               />
-              <div *ngIf="j<=i && j > i-9 && (input.notes.length!=0 || noteModeOn === true)&& input.correct != true"
+              <div *ngIf="j<=i && j > i-9 && input.notes.length!=0 && input.correct != true"
               (click) ="setSelectedNumberBox(input)"
               id={{j}}
               class="col-sm numberBox noteMode"
@@ -62,10 +62,16 @@
       </label>
     </div>
     <div class="editNotes" *ngIf="noteModeOn && selectedNumberBox != undefined && selectedNumberBox.correct != true">
-      this is the edit note section
-      <button
+      update notes here:
+      <button *ngFor="let number of [1, 2, 3, 4, 5, 6, 7, 8, 9]"
+      class='col-4'
       [class.active]="noteModeOn"
-      >1</button>
+      (click)="addNumberToNotes(number)"
+      >
+      <span *ngIf= 'selectedNumberBox.notes.includes(number)'>x</span>
+      <span *ngIf= '!selectedNumberBox.notes.includes(number)'>+</span>
+      {{number}}
+      </button>
     </div>
   </div>
 </div>

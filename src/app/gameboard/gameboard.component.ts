@@ -78,7 +78,16 @@ export class GameboardComponent implements OnInit {
 
   setSelectedNumberBox(selectedInputBox: NumberInput): void{
     this.selectedNumberBox = selectedInputBox;
-    console.log(this.selectedInputBox);
+  }
+
+  addNumberToNotes(selectedNumber: number){
+    let currentNotes = this.selectedNumberBox.notes
+    if(currentNotes.includes(selectedNumber)){
+      let index = currentNotes.indexOf(selectedNumber)
+      currentNotes.splice(index, 1);
+    }else{
+    this.selectedNumberBox.notes.push(selectedNumber);
+    }
   }
 
 
