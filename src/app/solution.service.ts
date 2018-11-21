@@ -20,10 +20,10 @@ export class SolutionService {
     this.solutions = database.list('solutions');
   }
 
-  getSolution(){
-    let solution = this.database.object('solutions/0/test');
-    return solution;
-  }
+  // getSolution(){
+  //   let solution = this.database.object('solutions/0/test');
+  //   return solution;
+  // }
 
   setLevel(difficultyLevel: string){
     this.level = difficultyLevel;

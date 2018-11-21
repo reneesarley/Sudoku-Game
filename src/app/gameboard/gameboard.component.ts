@@ -13,11 +13,12 @@ import { Observable } from 'rxjs/Observable';
 export class GameboardComponent implements OnInit {
   @Input() level: string;
   solution: FirebaseListObservable<any[]>;
-  playerInput:  NumberInput[] = [];
+  playerInput: Observable<NumberInput[]> = [];
+  selectedNumberBox: NumberInput;
   difficultyLevel: string;
   viewableSolution: number[]=[];
   gameWon: boolean = false;
-  noteModeOn: boolean = false;
+  noteModeOn: boolean = true;
 
   startNewGame(difficultyLevel: string){
    this.playerInput = [];
@@ -75,6 +76,11 @@ export class GameboardComponent implements OnInit {
     console.log(this.noteModeOn);
   }
 
+  setSelectedNumberBox(selectedInputBox: NumberInput): void{
+    this.selectedNumberBox = selectedInputBox;
+    console.log(this.selectedInputBox);
+  }
+
 
   checkBoard(){
     let amountTrue: number = 0;
@@ -96,7 +102,7 @@ export class GameboardComponent implements OnInit {
   }
 
   constructor(private solutionService: SolutionService) {
-
+    console.log(this.selectedInputBox)
   }
 
   ngDoCheck()	{
