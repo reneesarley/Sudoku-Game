@@ -18,12 +18,6 @@ export class GameboardComponent implements OnInit {
   viewableSolution: number[]=[];
   selectedNumber: NumberInput;
   gameWon: boolean = false;
-  currentGame: boolean = false;
-
-
-  // endGame(){
-  //   currentGame = false;
-  // }
 
   startNewGame(difficultyLevel: string){
    this.playerInput= [];
@@ -73,11 +67,6 @@ export class GameboardComponent implements OnInit {
     }
 
 
-  // getSolution(): void{
-  //   this.solutionService.getSolution()
-  //   .subscribe(solution => this.solution = solution)
-  // }
-
   checkBoard(){
     let amountTrue: number = 0;
     for(let i = 0; i< 80; i++){
@@ -105,10 +94,7 @@ export class GameboardComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.level);
-    // this.startNewGame();
-  }
-  ngOnDestroy(){
-    console.log("the gameboard is destroyed")
+    this.startNewGame('easy');
   }
 
 }

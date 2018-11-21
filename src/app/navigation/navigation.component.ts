@@ -12,7 +12,7 @@ import { GameboardComponent } from '../gameboard/gameboard.component';
 })
 export class NavigationComponent implements OnInit {
   @ViewChild(GameboardComponent) child: GameboardComponent;
-  difficultyLevel: string;
+  difficultyLevel: string ;
   // currentGame: GameboardComponent;
 
   constructor(private service: SolutionService) { }
@@ -22,15 +22,15 @@ export class NavigationComponent implements OnInit {
   // }
 
   startNewGame(difficultyLevel: string){
-    // this.child.endGame();
     this.difficultyLevel = difficultyLevel;
     this.child.startNewGame(difficultyLevel);
 
     // this.service.setLevel(difficultyLevel);
-    console.log(difficultyLevel);
+    console.log("nav level" + difficultyLevel);
   }
 
   ngOnInit() {
+    console.log("nav is initiated")
   }
 
 }
