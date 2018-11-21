@@ -1,0 +1,13 @@
+#logo{
+  color:white;
+  text-transform: uppercase;
+  letter-spacing: .6em;
+}
+
+.navbar{
+  background-color: #403F4C;
+}
+
+nav{
+  margin-bottom: 20px;
+}
