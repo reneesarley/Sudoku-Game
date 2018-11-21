@@ -79,9 +79,6 @@ export class GameboardComponent implements OnInit {
   setSelectedNumberBox(selectedInputBox: NumberInput): void{
     this.selectedNumberBox = selectedInputBox;
     console.log(this.selectedNumberBox)
-    // if(noteModeOn === false){
-    //
-    // }
   }
 
   addNumberToNotes(selectedNumber: number){
@@ -96,6 +93,7 @@ export class GameboardComponent implements OnInit {
 
 
   checkBoard(){
+    console.log('checking board')
     let amountTrue: number = 0;
     if(this.solution != undefined){
       for(let i = 0; i< 80; i++){
@@ -119,7 +117,7 @@ export class GameboardComponent implements OnInit {
   }
 
   ngDoCheck()	{
-    // this.checkBoard();
+    this.checkBoard();
   }
 
   ngOnInit() {
