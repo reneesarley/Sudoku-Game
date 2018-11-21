@@ -18,32 +18,40 @@ export class GameboardComponent implements OnInit {
   viewableSolution: number[] =[];
   selectedNumber: NumberInput;
   gameWon: boolean = false;
+  currentGame: boolean = false;
 
+
+  // endGame(){
+  //   currentGame = false;
+  // }
 
   startNewGame(difficultyLevel: string){
-    this.difficultyLevel= difficultyLevel;    this.solutionService.solutions.subscribe(solutions => {
+    this.difficultyLevel= difficultyLevel;
+    this.solutionService.solutions.subscribe(solutions => {
       this.solution = solutions[0].numbers;
       this.setViewableSolution();
       this.buildInitialGameboard();
     })
+    this.currentGame= true;
   }
 
   setViewableSolution(){
     let randomIndex: number;
-    let numbersShown: number;
+    let numbersShown: number = 0;
     let counter: number = 0;
     if(this.difficultyLevel == 'easy'){
-      numbersShown = 81;
-    } else if(this.difficultyLevel == 'medium'){
+      numbersShown = 55;
+    } else if(this.difficultyLevel == 'moderate'){
       numbersShown = 35;
     } else if(this.difficultyLevel == 'hard'){
       numbersShown = 25;
+    }else if(this.difficultyLevel == 'reallyhard'){
+      numbersShown = 20;
     }
-    while(counter<numbersShown){
+    for(let i =0; i<numbersShown; i++){
       randomIndex = Math.floor(Math.random() * 81) + 0;
       if(!this.viewableSolution.includes(randomIndex)){
         this.viewableSolution.push(randomIndex);
-        counter ++
       }
     }
     console.log("the viewable solution is:")
@@ -95,8 +103,10 @@ export class GameboardComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.level);
-    this.startNewGame();
-
+    // this.startNewGame();
+  }
+  ngOnDestroy(){
+    console.log("the gameboard is destroyed")
   }
 
 }
