@@ -31,7 +31,7 @@ export class GameboardComponent implements OnInit {
       this.setViewableSolution();
       this.buildInitialGameboard();
     })
-    this.currentGame= true;
+    console.log(this.solution);
   }
 
   setViewableSolution(){
@@ -40,7 +40,7 @@ export class GameboardComponent implements OnInit {
     let numbersShown: number = 0;
     let counter: number = 0;
     if(this.difficultyLevel == 'easy'){
-      numbersShown = 55;
+      numbersShown = 80;
     } else if(this.difficultyLevel == 'moderate'){
       numbersShown = 35;
     } else if(this.difficultyLevel == 'hard'){
@@ -55,8 +55,6 @@ export class GameboardComponent implements OnInit {
         this.viewableSolution.push(randomIndex);
         counter = counter + 1;      }
     }
-    console.log("the viewable solution is:")
-    console.log(this.viewableSolution)
   }
 
 
@@ -96,7 +94,7 @@ export class GameboardComponent implements OnInit {
     console.log('checking board')
     let amountTrue: number = 0;
     if(this.solution != undefined){
-      for(let i = 0; i< 80; i++){
+      for(let i = 0; i< 81; i++){
         if(this.solution[i] == this.playerInput[i].guess){
           this.playerInput[i].correct = true;
           amountTrue ++;
