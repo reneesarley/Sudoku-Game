@@ -15,7 +15,7 @@ export class GameboardComponent implements OnInit {
   solution: FirebaseListObservable<any[]>;
   playerInput:  NumberInput[] = [];
   difficultyLevel: string;
-  viewableSolution: number[] =[];
+  viewableSolution: number[]=[];
   selectedNumber: NumberInput;
   gameWon: boolean = false;
   currentGame: boolean = false;
@@ -26,6 +26,7 @@ export class GameboardComponent implements OnInit {
   // }
 
   startNewGame(difficultyLevel: string){
+   this.playerInput= [];
     this.difficultyLevel= difficultyLevel;
     this.solutionService.solutions.subscribe(solutions => {
       this.solution = solutions[0].numbers;
@@ -48,6 +49,7 @@ export class GameboardComponent implements OnInit {
     }else if(this.difficultyLevel == 'reallyhard'){
       numbersShown = 20;
     }
+    console.log(numbersShown)
     for(let i =0; i<numbersShown; i++){
       randomIndex = Math.floor(Math.random() * 81) + 0;
       if(!this.viewableSolution.includes(randomIndex)){
