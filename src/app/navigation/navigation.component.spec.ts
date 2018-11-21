@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NumberBoxComponent } from './number-box.component';
+import { NavigationComponent } from './navigation.component';
 
-describe('NumberBoxComponent', () => {
-  let component: NumberBoxComponent;
-  let fixture: ComponentFixture<NumberBoxComponent>;
+describe('NavigationComponent', () => {
+  let component: NavigationComponent;
+  let fixture: ComponentFixture<NavigationComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NumberBoxComponent ]
+      declarations: [ NavigationComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NumberBoxComponent);
+    fixture = TestBed.createComponent(NavigationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

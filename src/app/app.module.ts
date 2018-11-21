@@ -8,8 +8,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AppComponent } from './app.component';
 import { GameboardComponent } from './gameboard/gameboard.component';
-import { NumberBoxComponent } from './number-box/number-box.component';
 import { SolutionService } from './solution.service';
+import { NavigationComponent } from './navigation/navigation.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -22,7 +22,8 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     GameboardComponent,
-    NumberBoxComponent,
+    NavigationComponent,
+
 
   ],
   imports: [

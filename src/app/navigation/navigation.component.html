@@ -1,0 +1,17 @@
+<nav class="navbar navbar-light bg-light justify-content-between">
+  <a class="navbar-brand">Sudoku</a>
+  <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle btn btn-outline-success my-2 my-sm-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Start New Game
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a (click)="startNewGame('easy')"class="dropdown-item" >Easy Game</a>
+    <a (click)="startNewGame('Moderate')" class="dropdown-item" >Moderate Game</a>
+    <a (click)="startNewGame('Hard')" class="dropdown-item" >Hard Game</a>
+    <a (click)="startNewGame('ReallyHard')" class ="dropdown-item" >Really Hard Game</a>
+  </div>
+</div>
+</nav>
+<app-gameboard
+  [level] = difficultyLevel>
+</app-gameboard>
