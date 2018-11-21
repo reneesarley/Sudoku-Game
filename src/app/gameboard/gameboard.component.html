@@ -5,7 +5,7 @@
         <div class="row">
           <ng-container *ngFor="let input of playerInput; let j = index">
               <input [(ngModel)]="input.guess"
-              *ngIf="j<=i && j > i-9 &&(input.notes.length===0 || input.correct === true)"
+              *ngIf="j<=i && j > i-9 &&((input.notes.length===0 || input.correct === true)||(selectedNumberBox === input && noteModeOn === false))"
               (click) ="setSelectedNumberBox(input)"
               id={{j}} class="col-sm numberBox"
               [class.outerLeft]="(j%9)===0"
@@ -22,6 +22,7 @@
               (click) ="setSelectedNumberBox(input)"
               id={{j}}
               class="col-sm numberBox noteMode"
+              [attr.hidden]="selectedNumberBox === input && noteModeOn === false? '': null"
               [class.outerLeft]="(j%9)===0"
               [class.outerRight]="(j+1)%9===0"
               [class.outerTop]= "j<9"
