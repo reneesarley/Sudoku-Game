@@ -17,6 +17,7 @@ export class GameboardComponent implements OnInit {
   difficultyLevel: string;
   viewableSolution: number[]=[];
   gameWon: boolean = false;
+  noteModeOn: boolean = false;
 
   startNewGame(difficultyLevel: string){
    this.playerInput= [];
@@ -54,16 +55,20 @@ export class GameboardComponent implements OnInit {
   }
 
 
-    buildInitialGameboard(){
-      for (let i = 0; i< 81; i++){
-        let numberInput: NumberInput = new NumberInput;
-        if(this.viewableSolution.includes(i)){
-          numberInput.guess=this.solution[i];
-          numberInput.correct=true;
-        }
-        this.playerInput.push(numberInput);
+  buildInitialGameboard(){
+    for (let i = 0; i< 81; i++){
+      let numberInput: NumberInput = new NumberInput;
+      if(this.viewableSolution.includes(i)){
+        numberInput.guess=this.solution[i];
+        numberInput.correct=true;
       }
+      this.playerInput.push(numberInput);
     }
+  }
+
+  toggleNotesWithGuess(noteMode: boolean){
+    console.log(noteMode);
+  }
 
 
   checkBoard(){
