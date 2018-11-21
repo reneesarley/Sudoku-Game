@@ -32,7 +32,7 @@ _This application will function like a traditional Sudoku game. Each 3x3 square,
 
 ## Known Bugs
 
-_Incorrect guess, changed to correct guess, 'incorrect' class does not get removed from element_
+_Adding correct guess to numberInput throws error: ExpressionChangedAfterItHasBeenCheckedError: Expression has changed after it was checked. Previous value: 'ng-untouched: true'. Current value: 'ng-untouched: false'._
 
 ## Support and contact details
 
@@ -40,7 +40,9 @@ _Please email with any questions._
 
 ## Technologies Used
 
-* _JavaScript with Angular_
+* _TypeScript_
+* _Angular_
+* _Bootstrap_
 
 ### License
 

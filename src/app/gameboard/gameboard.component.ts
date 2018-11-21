@@ -16,7 +16,6 @@ export class GameboardComponent implements OnInit {
   playerInput:  NumberInput[] = [];
   difficultyLevel: string;
   viewableSolution: number[]=[];
-  selectedNumber: NumberInput;
   gameWon: boolean = false;
 
   startNewGame(difficultyLevel: string){
@@ -69,18 +68,20 @@ export class GameboardComponent implements OnInit {
 
   checkBoard(){
     let amountTrue: number = 0;
-    for(let i = 0; i< 80; i++){
-      if(this.solution[i] == this.playerInput[i].guess){
-        this.playerInput[i].correct = true;
-        amountTrue ++;
+    if(this.solution != undefined){
+      for(let i = 0; i< 80; i++){
+        if(this.solution[i] == this.playerInput[i].guess){
+          this.playerInput[i].correct = true;
+          amountTrue ++;
+        }
+      else if(this.playerInput[i].guess != this.solution[i] && this.playerInput[i].guess != undefined){
+          this.playerInput[i].correct = false;
+        }
       }
-    else if(this.playerInput[i].guess != this.solution[i] && this.playerInput[i].guess != undefined){
-        this.playerInput[i].correct = false;
+      if(amountTrue == 81){
+        this.gameWon = true;
+        console.log('winning game')
       }
-    }
-    if(amountTrue == 81){
-      this.gameWon = true;
-      console.log('winning game')
     }
   }
 
@@ -89,7 +90,7 @@ export class GameboardComponent implements OnInit {
   }
 
   ngDoCheck()	{
-    // this.checkBoard();
+    this.checkBoard();
   }
 
   ngOnInit() {

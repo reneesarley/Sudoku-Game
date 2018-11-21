@@ -5,7 +5,7 @@
       <div class="row">
         <div class=" col-1 rowBuffer"></div>
         <ng-container *ngFor="let input of playerInput; let j = index">
-            <input [(ngModel)]="input.guess" (click)="assignSelected(input)" *ngIf="j<=i && j > i-9"
+            <input [(ngModel)]="input.guess" *ngIf="j<=i && j > i-9"
             id={{j}} class="col-1 numberBox" [class.outerLeft]="(j%9)===0"
             [class.outerRight]="(j+1)%9===0"
             [class.outerTop]= "j<9"
