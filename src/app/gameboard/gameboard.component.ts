@@ -21,11 +21,13 @@ export class GameboardComponent implements OnInit {
   noteModeOn: boolean = true;
 
   startNewGame(difficultyLevel: string){
+
    this.playerInput = [];
    console.log('current playerInput is' + this.playerInput);
     this.difficultyLevel= difficultyLevel;
     this.solutionService.solutions.subscribe(solutions => {
-      this.solution = solutions[0].numbers;
+      let randomIndex = Math.floor(Math.random() * solutions.length) + 0;
+      this.solution = solutions[randomIndex].numbers;
       this.setViewableSolution();
       this.buildInitialGameboard();
     })
@@ -51,9 +53,7 @@ export class GameboardComponent implements OnInit {
       randomIndex = Math.floor(Math.random() * 81) + 0;
       if(!this.viewableSolution.includes(randomIndex)){
         this.viewableSolution.push(randomIndex);
-        counter = counter + 1;
-        console.log(counter);
-      }
+        counter = counter + 1;      }
     }
     console.log("the viewable solution is:")
     console.log(this.viewableSolution)
@@ -78,6 +78,10 @@ export class GameboardComponent implements OnInit {
 
   setSelectedNumberBox(selectedInputBox: NumberInput): void{
     this.selectedNumberBox = selectedInputBox;
+    console.log(this.selectedNumberBox)
+    // if(noteModeOn === false){
+    //
+    // }
   }
 
   addNumberToNotes(selectedNumber: number){
