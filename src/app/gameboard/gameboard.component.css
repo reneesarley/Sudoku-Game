@@ -1,38 +1,94 @@
 .numberBox{
-  border: .5px solid grey;
+  border: .5px solid #6c757d;
   background-color: white;
   text-align: center;
-  padding-top: 5px;
-  min-height: 35px;
-  min-width: 35px;
+  padding: 0;
+  /* min-height: 50px;
+  min-width: 50px;
+  max-height: 50px;
+  max-width: 50px; */
+  /* height: 100%; */
 }
 
+
 .outerLeft{
-  border-left: 3px solid black
+  border-left: 3px solid #403F4C;
 }
 .outerRight{
-  border-right: 3px solid black;
+  border-right: 3px solid #403F4C;
 }
 .outerTop{
-  border-top: 3px solid black;
+  border-top: 3px solid #403F4C;
 }
 .outerBottom{
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid #403F4C;
 }
 
 .innerRight{
-  border-right: 1.5px solid black;
+  border-right: 1.5px solid #403F4C;
 }
 .innerBottom{
-  border-bottom: 1.5px solid black;
+  border-bottom: 1.5px solid #403F4C;
 }
 
 .correct{
-  background-color: beige;
+  background-color: #FCFCC2;
 }
 .incorrect{
   background-color: red;
 }
 .rowBuffer{
   border-top: none;
+}
+
+.noteSection{
+  padding-left: 2em;
+  text-align: center;
+  font-size: .75em;
+}
+
+.btn.btn-secondary.active{
+   background-color: #403F4C;
+
+}
+#whichMode{
+  text-align: center;
+}
+
+#whichMode em{
+  font-weight: bold;
+  font-style: normal;
+}
+.numberBox.noteMode{
+  margin: 0;
+}
+
+.numberBtns{
+  margin-right: .1em;
+  margin-top:.25em;
+}
+
+.removeNumber{
+  background-color: #403F4C;
+  color: white;
+}
+
+.addNumber{
+  background-color: #6c757d;
+  color: white;
+}
+
+.numberAction{
+  font-size: .25em;
+}
+
+.noteDiv{
+  font-size: .5em;
+  float: left;
+  font-weight: bold;
+}
+
+.btn-group-toggle{
+  width:100%;
+  margin: .75em 0 .75em 0;
 }
