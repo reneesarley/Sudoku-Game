@@ -38,11 +38,6 @@
 .innerBottom{
   border-bottom: 1.5px solid #403F4C;
 }
-
-.correct{
-  background-color: #FCFCC2;
-  background-image: none;
-}
 .selected{
   background-image: radial-gradient(white, white, #BED0E0);
 }
@@ -50,8 +45,10 @@
   background-color: red;
   background-image: none;
 }
-
-
+.correct{
+  background-color: #FCFCC2;
+  background-image: none;
+}
 
 .rowBuffer{
   border-top: none;

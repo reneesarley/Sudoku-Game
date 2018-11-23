@@ -2,11 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { NumberInput } from '../number-input';
 import { SolutionService } from '../solution.service'
 import { FirebaseListObservable } from 'angularfire2/database';
-import { Observable } from 'rxjs/Observable';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { trigger, state, style, animate, transition } from '@angular/animations';
-
-
+// import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-gameboard',
@@ -17,7 +13,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 export class GameboardComponent implements OnInit {
   @Input() level: string;
   solution: FirebaseListObservable<any[]>;
-  playerInput: Observable<NumberInput[]> = [];
+  playerInput: NumberInput[];
   selectedNumberBox: NumberInput;
   difficultyLevel: string;
   viewableSolution: number[]=[];
@@ -28,7 +24,6 @@ export class GameboardComponent implements OnInit {
   startNewGame(difficultyLevel: string){
    this.playerInput = [];
    this.gameWon = false;
-   console.log('current playerInput is' + this.playerInput);
     this.difficultyLevel= difficultyLevel;
     this.solutionService.solutions.subscribe(solutions => {
       let randomIndex = Math.floor(Math.random() * solutions.length) + 0;
@@ -36,9 +31,7 @@ export class GameboardComponent implements OnInit {
       this.setViewableSolution();
       this.buildInitialGameboard();
     })
-    console.log(this.solution);
   }
-
 
   setViewableSolution(){
     this.viewableSolution = [];
@@ -54,7 +47,6 @@ export class GameboardComponent implements OnInit {
     }else if(this.difficultyLevel == 'reallyhard'){
       numbersShown = 20;
     }
-    console.log(numbersShown)
     while(counter<numbersShown){
       randomIndex = Math.floor(Math.random() * 81) + 0;
       if(!this.viewableSolution.includes(randomIndex)){
@@ -62,7 +54,6 @@ export class GameboardComponent implements OnInit {
         counter = counter + 1;      }
     }
   }
-
 
   buildInitialGameboard(){
     for (let i = 0; i< 81; i++){
@@ -77,13 +68,11 @@ export class GameboardComponent implements OnInit {
 
   toggleNotesWithGuess(noteMode: boolean){
     this.noteModeOn=noteMode;
-    console.log(this.noteModeOn);
   }
 
   setSelectedNumberBox(selectedInputBox: NumberInput): void{
     this.selectedNumberBox = selectedInputBox;
-    console.log(this.selectedNumberBox)
-  }
+    }
 
   addNumberToNotes(selectedNumber: number){
     let currentNotes = this.selectedNumberBox.notes
@@ -95,9 +84,7 @@ export class GameboardComponent implements OnInit {
     }
   }
 
-
   checkBoard(){
-    console.log('checking board')
     let amountTrue: number = 0;
     if(this.solution != undefined){
       for(let i = 0; i< 81; i++){
@@ -110,14 +97,14 @@ export class GameboardComponent implements OnInit {
         }
       }
       if(amountTrue == 81){
-        this.selectedNumber = null;
+        this.selectedNumberBox = null;
         this.gameWon = true;
       }
     }
   }
 
   constructor(private solutionService: SolutionService) {
-    console.log(this.selectedInputBox)
+
   }
 
   ngDoCheck()	{
@@ -125,7 +112,6 @@ export class GameboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.level);
     this.startNewGame('easy');
   }
 
