@@ -46,7 +46,7 @@ export class GameboardComponent implements OnInit {
     let numbersShown: number = 0;
     let counter: number = 0;
     if(this.difficultyLevel == 'easy'){
-      numbersShown = 80;
+      numbersShown = 50;
     } else if(this.difficultyLevel == 'moderate'){
       numbersShown = 35;
     } else if(this.difficultyLevel == 'hard'){
