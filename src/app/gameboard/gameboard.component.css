@@ -40,10 +40,18 @@
 
 .correct{
   background-color: #FCFCC2;
+  background-image: none;
+}
+.selected{
+  background-image: radial-gradient(white, white, #BED0E0);
 }
 .incorrect{
   background-color: red;
+  background-image: none;
 }
+
+
+
 .rowBuffer{
   border-top: none;
 }

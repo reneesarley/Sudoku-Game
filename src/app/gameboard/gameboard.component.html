@@ -16,6 +16,7 @@
               [class.innerRight]="((j+1)-3)%9===0 || ((j+1)-6)%9===0"
               [class.innerBottom]="i===26 || i===53"
               [class.correct]="input.correct===true"
+              [class.selected]="selectedNumberBox===input"
               [class.incorrect]="input.correct===false"
               [attr.disabled]="input.correct? '':null"
               />
@@ -30,6 +31,7 @@
               [class.outerBottom]= "j>71"
               [class.innerRight]="((j+1)-3)%9===0 || ((j+1)-6)%9===0"
               [class.innerBottom]="i===26 || i===53"
+              [class.selected]="selectedNumberBox===input"
               [attr.disabled]="input.correct? '':null" >
                 <div class="noteDiv col-4"*ngFor="let note of input.notes; let k = index">
                   {{note}}
