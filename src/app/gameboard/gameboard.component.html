@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-9">
-    <ng-container *ngFor="let number of playerInput; let i = index">
+    <ng-container *ngFor="let number of playerInput; let i = index"
+    class="gameboard">
       <div *ngIf="(i+1)%9===0">
         <div class="row numberRows">
           <ng-container *ngFor="let input of playerInput; let j = index">
@@ -9,6 +10,8 @@
               (click) ="setSelectedNumberBox(input)"
               id={{j}} class="col-sm numberBox"
               [attr.hidden]="selectedNumberBox === input && noteModeOn === true? '': null"
+              [class.gameWon]='!smileIndex.includes(j)&&gameWon === true '
+              [class.smile]='smileIndex.includes(j) && gameWon===true'
               [class.outerLeft]="(j%9)===0"
               [class.outerRight]="(j+1)%9===0"
               [class.outerTop]= "j<9"
@@ -31,12 +34,11 @@
               [class.outerBottom]= "j>71"
               [class.innerRight]="((j+1)-3)%9===0 || ((j+1)-6)%9===0"
               [class.innerBottom]="i===26 || i===53"
-              [class.selected]="selectedNumberBox===input"
+              [class.selected]="selectedNumberBox===input && gameWon === false"
               [attr.disabled]="input.correct? '':null" >
                 <div class="noteDiv col-4"*ngFor="let note of input.notes; let k = index">
                   {{note}}
                 </div>
-                <!-- <input *ngFor="let note of input.notes; let k = index"[(ngModel)]="note"/> -->
             </div>
           </ng-container>
         </div>
@@ -91,22 +93,22 @@
         </div>
       </div>
     </div>
-      <div *ngIf="selectedNumberBox.notes.length>0"class="editNotesButtons">
-        <br>Remove Number:
-        <div class=" row">
-          <div *ngFor="let number of [1, 2, 3, 4, 5, 6, 7, 8, 9]" class="col-3">
-            <button
-            *ngIf='selectedNumberBox.notes.includes(number)'
-            class="numberBtns btn btn-sm "
-            [class.active]="noteModeOn"
-            [class.removeNumber]="selectedNumberBox.notes.includes(number)"
-            [class.addNumber]="!selectedNumberBox.notes.includes(number)"
-            (click)="addNumberToNotes(number)">
-             {{number}}
-            </button>
-          </div>
+    <div *ngIf="selectedNumberBox.notes.length>0"class="editNotesButtons">
+      <br>Remove Number:
+      <div class=" row">
+        <div *ngFor="let number of [1, 2, 3, 4, 5, 6, 7, 8, 9]" class="col-3">
+          <button
+          *ngIf='selectedNumberBox.notes.includes(number)'
+          class="numberBtns btn btn-sm "
+          [class.active]="noteModeOn"
+          [class.removeNumber]="selectedNumberBox.notes.includes(number)"
+          [class.addNumber]="!selectedNumberBox.notes.includes(number)"
+          (click)="addNumberToNotes(number)">
+           {{number}}
+          </button>
         </div>
       </div>
+     </div>
     </div>
   </div>
 </div>

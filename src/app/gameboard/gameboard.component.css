@@ -1,3 +1,7 @@
+.gameBoard{
+  z-index: 1;
+}
+
 .numberBox{
   border: .5px solid #6c757d;
   background-color: white;
@@ -7,7 +11,6 @@
   min-width: 50px;
   max-height: 50px;
   max-width: 50px;
-
 }
 
 .numberRows{
@@ -15,8 +18,6 @@
   margin-left: 0;
   float: right;
 }
-
-
 
 .outerLeft{
   border-left: 3px solid #403F4C;
@@ -112,6 +113,49 @@
 .btn-group-toggle{
   width:100%;
   margin: .75em 0 .75em 0;
+}
+
+@keyframes winningGame {
+    from {
+      background-color: #FCFCC2;
+      border: .5px solid #6c757d;
+    }
+    to {
+      border: none;
+      background-color: #FCFCC2;
+      background-image: none;
+      color: #FCFCC2;
+      z-index: -2;
+    }
+}
+
+@keyframes smileAnimation {
+    from {
+      background-color: #FCFCC2;
+      border: .5px solid #6c757d;
+    }
+    to {
+      background-image: none;
+      background-color: #403F4C;
+      border: none;
+      color: #403F4C;
+    }
+}
+
+.gameWon{
+  border: .5px solid #6c757d;
+  animation-name: winningGame;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+}
+.smile{
+  background-color: #403F4C;
+  border: none;
+  color: #403F4C;
+  animation-name: smileAnimation;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+
 }
 
 @media only screen and (max-width: 770px){

@@ -3,13 +3,17 @@ import { NumberInput } from '../number-input';
 import { SolutionService } from '../solution.service'
 import { FirebaseListObservable } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { trigger, state, style, animate, transition } from '@angular/animations';
+
 
 
 @Component({
   selector: 'app-gameboard',
   templateUrl: './gameboard.component.html',
-  styleUrls: ['./gameboard.component.css']
+  styleUrls: ['./gameboard.component.css'],
 })
+
 export class GameboardComponent implements OnInit {
   @Input() level: string;
   solution: FirebaseListObservable<any[]>;
@@ -18,11 +22,12 @@ export class GameboardComponent implements OnInit {
   difficultyLevel: string;
   viewableSolution: number[]=[];
   gameWon: boolean = false;
-  noteModeOn: boolean = true;
+  noteModeOn: boolean = false;
+  smileIndex: number[] =[10,11,15,16,19,20,24,25,40,46,52,56,60,66,67,68,55,65,61,69]
 
   startNewGame(difficultyLevel: string){
-
    this.playerInput = [];
+   this.gameWon = false;
    console.log('current playerInput is' + this.playerInput);
     this.difficultyLevel= difficultyLevel;
     this.solutionService.solutions.subscribe(solutions => {
@@ -33,6 +38,7 @@ export class GameboardComponent implements OnInit {
     })
     console.log(this.solution);
   }
+
 
   setViewableSolution(){
     this.viewableSolution = [];
@@ -104,8 +110,8 @@ export class GameboardComponent implements OnInit {
         }
       }
       if(amountTrue == 81){
+        this.selectedNumber = null;
         this.gameWon = true;
-        console.log('winning game')
       }
     }
   }
