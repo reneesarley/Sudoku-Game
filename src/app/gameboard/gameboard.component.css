@@ -10,6 +10,13 @@
 
 }
 
+.numberRows{
+  margin-right: 11%;
+  margin-left: 0;
+  float: right;
+}
+
+
 
 .outerLeft{
   border-left: 3px solid #403F4C;
@@ -70,6 +77,9 @@
   margin-right: .1em;
   margin-top:.25em;
 }
+.editNotesButtons{
+  text-align: left;
+}
 
 .removeNumber{
   background-color: #403F4C;
@@ -96,7 +106,7 @@
   margin: .75em 0 .75em 0;
 }
 
-@media only screen and (max-width: 780px){
+@media only screen and (max-width: 770px){
   .numberBox{
     text-align: center;
     padding: 0;
@@ -106,10 +116,21 @@
     max-width: 35px;
   }
 
+  .numberRows{
+    margin-right: 15%;
+    margin-left: 0;
+    float: right;
+  }
+
   .noteDiv{
     font-size: 7.5px;
     float: left;
     font-weight: bold;
+  }
+
+  .noteSection{
+    margin: 0;
+    padding: 0
   }
 
 }

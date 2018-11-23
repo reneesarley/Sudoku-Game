@@ -71,23 +71,40 @@
     </div>
     <div class="editNotes"
       *ngIf="noteModeOn && selectedNumberBox != undefined && selectedNumberBox.correct != true">
-    <div class="col-12"><br>Update notes here:</div>
-    <div class="row">
-      <div *ngFor="let number of [1, 2, 3, 4, 5, 6, 7, 8, 9]" class="col-4">
-        <button
-        class="numberBtns btn btn-sm "
-        [class.active]="noteModeOn"
-        [class.removeNumber]="selectedNumberBox.notes.includes(number)"
-        [class.addNumber]="!selectedNumberBox.notes.includes(number)"
-        (click)="addNumberToNotes(number)">
-        <span *ngIf='selectedNumberBox.notes.includes(number)'
-        class="numberAction">Remove<br></span>
-        <span *ngIf='!selectedNumberBox.notes.includes(number)'
-        class="numberAction">Add<br></span>
-         {{number}}
-        </button>
-      </div>
+    <div
+    *ngIf="selectedNumberBox.notes.length<9"
+    class="editNotesButtons">
+      Add Number:
+      <div class=" row">
+        <div *ngFor="let number of [1, 2, 3, 4, 5, 6, 7, 8, 9]" class="col-3">
+          <button
+          *ngIf='!selectedNumberBox.notes.includes(number)'
+          class="numberBtns btn btn-sm "
+          [class.active]="noteModeOn"
+          [class.removeNumber]="selectedNumberBox.notes.includes(number)"
+          [class.addNumber]="!selectedNumberBox.notes.includes(number)"
+          (click)="addNumberToNotes(number)">
+           {{number}}
+          </button>
         </div>
+      </div>
+    </div>
+      <div *ngIf="selectedNumberBox.notes.length>0"class="editNotesButtons">
+        <br>Remove Number:
+        <div class=" row">
+          <div *ngFor="let number of [1, 2, 3, 4, 5, 6, 7, 8, 9]" class="col-3">
+            <button
+            *ngIf='selectedNumberBox.notes.includes(number)'
+            class="numberBtns btn btn-sm "
+            [class.active]="noteModeOn"
+            [class.removeNumber]="selectedNumberBox.notes.includes(number)"
+            [class.addNumber]="!selectedNumberBox.notes.includes(number)"
+            (click)="addNumberToNotes(number)">
+             {{number}}
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
