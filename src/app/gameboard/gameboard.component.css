@@ -1,5 +1,5 @@
 .gameBoard{
-  z-index: 1;
+display: block;
 }
 
 .numberBox{
@@ -14,9 +14,9 @@
 }
 
 .numberRows{
-  margin-right: 11%;
   margin-left: 0;
-  float: right;
+  display: block;
+  float: left;
 }
 
 .outerLeft{
@@ -166,9 +166,9 @@
   }
 
   .numberRows{
-    margin-right: 15%;
-    margin-left: 0;
-    float: right;
+    /* margin-right: 15%; */
+    /* margin-left: 0; */
+    /* float: right; */
   }
 
   .noteDiv{
@@ -185,5 +185,13 @@
 }
 @media only screen and (max-width:667px){
 
-  
+  .numberRows{
+    margin: 0;
+  }
+
+  .row{
+    margin: 0;
+  }
+
+
 }

@@ -1,7 +1,6 @@
 <div class="row">
-  <div class="col-9-sm col-12-xs">
-    <ng-container *ngFor="let number of playerInput; let i = index"
-    class="gameboard">
+  <div class="col-sm-9 gameboard">
+    <ng-container *ngFor="let number of playerInput; let i = index">
       <div *ngIf="(i+1)%9===0">
         <div class="row numberRows">
           <ng-container *ngFor="let input of playerInput; let j = index">
@@ -46,7 +45,7 @@
       </div>
     </ng-container>
   </div>
-  <div class="col-3-sm col-12-xs noteSection">
+  <div class="col-sm-3 noteSection">
     Toggle between Note Mode and Guess Mode<br>
     <div class="btn-group btn-group-toggle row" data-toggle="buttons">
       <label class="btn btn-secondary btn-sm col-6"
@@ -81,7 +80,7 @@
     class="editNotesButtons">
       Add Number:
       <div class=" row">
-        <div *ngFor="let number of [1, 2, 3, 4, 5, 6, 7, 8, 9]" class="col-3">
+        <div *ngFor="let number of [1, 2, 3, 4, 5, 6, 7, 8, 9]" class="col-3-sm col-xs">
           <button
           *ngIf='!selectedNumberBox.notes.includes(number)'
           class="numberBtns btn btn-sm "
@@ -97,7 +96,7 @@
     <div *ngIf="selectedNumberBox.notes.length>0"class="editNotesButtons">
       <br>Remove Number:
       <div class=" row">
-        <div *ngFor="let number of [1, 2, 3, 4, 5, 6, 7, 8, 9]" class="col-3">
+        <div *ngFor="let number of [1, 2, 3, 4, 5, 6, 7, 8, 9]" class="col-3-sm col-xs">
           <button
           *ngIf='selectedNumberBox.notes.includes(number)'
           class="numberBtns btn btn-sm "
