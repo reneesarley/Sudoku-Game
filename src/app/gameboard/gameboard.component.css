@@ -75,8 +75,8 @@ display: block;
   font-weight: bold;
   font-style: normal;
 }
-.numberBox.noteMode{
-  margin: 0;
+.noteMode{
+  margin-right: 0;
 }
 
 .numberBtns{
@@ -166,9 +166,9 @@ display: block;
   }
 
   .numberRows{
-    /* margin-right: 15%; */
-    /* margin-left: 0; */
-    /* float: right; */
+    margin-right: 15%;
+    margin-left: 0;
+    float: right;
   }
 
   .noteDiv{

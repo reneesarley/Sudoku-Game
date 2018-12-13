@@ -72,6 +72,7 @@ export class GameboardComponent implements OnInit {
 
   setSelectedNumberBox(selectedInputBox: NumberInput): void{
     this.selectedNumberBox = selectedInputBox;
+    console.log(this.selectedNumberBox.guess);
     }
 
   addNumberToNotes(selectedNumber: number){
@@ -95,6 +96,9 @@ export class GameboardComponent implements OnInit {
       else if(this.playerInput[i].guess != this.solution[i] && this.playerInput[i].guess != undefined){
           this.playerInput[i].correct = false;
         }
+      else if(this.playerInput[i].guess === undefined){
+        this.playerInput[i].correct = undefined;
+      }
       }
       if(amountTrue == 81){
         this.selectedNumberBox = null;

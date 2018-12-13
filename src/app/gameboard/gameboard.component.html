@@ -10,7 +10,7 @@
               (click) ="setSelectedNumberBox(input)"
               id={{j}} class="col-sm numberBox"
               [attr.hidden]="selectedNumberBox === input && noteModeOn === true? '': null"
-              [class.gameWon]='!smileIndex.includes(j)&&gameWon === true '
+              [class.gameWon]='!smileIndex.includes(j)&&gameWon === true'
               [class.smile]='smileIndex.includes(j) && gameWon===true'
               [class.outerLeft]="(j%9)===0"
               [class.outerRight]="(j+1)%9===0"
@@ -20,14 +20,14 @@
               [class.innerBottom]="i===26 || i===53"
               [class.selected]="selectedNumberBox===input"
               [class.correct]="input.correct===true"
-              [class.incorrect]="input.correct===false"
+              [class.incorrect]="input.correct===false && input.guess != ''"
               [attr.disabled]="input.correct? '':null"
               />
               <div *ngIf="j<=i && j > i-9 && ((input.notes.length!=0 && input.correct != true) || (selectedNumberBox === input && noteModeOn == true))"
               (click) ="setSelectedNumberBox(input)"
               id={{j}}
               class="col-sm row numberBox noteMode"
-              [attr.hidden]="selectedNumberBox === input && noteModeOn === false? '': null"
+              [attr.hidden]="selectedNumberBox === input && noteModeOn === false || input.correct === true? '': null"
               [class.outerLeft]="(j%9)===0"
               [class.outerRight]="(j+1)%9===0"
               [class.outerTop]= "j<9"
