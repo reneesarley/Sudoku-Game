@@ -15,7 +15,7 @@ display: block;
 
 .numberRows{
   margin-left: 0;
-  display: block;
+  /* display: block; */
   float: left;
 }
 
@@ -75,9 +75,8 @@ display: block;
   font-weight: bold;
   font-style: normal;
 }
-.noteMode{
-  margin-right: 0;
-}
+/* .noteMode{
+background-color: pink;} */
 
 .numberBtns{
   margin-right: .1em;
