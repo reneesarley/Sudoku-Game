@@ -60,9 +60,7 @@ display: block;
   font-size: .75em;
 }
 
-.noteDiv{
-  padding: 0;
-}
+
 .btn.btn-secondary.active{
    background-color: #403F4C;
 
