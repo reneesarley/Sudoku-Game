@@ -49,7 +49,7 @@ export class GameboardComponent implements OnInit {
     }
     while(counter<numbersShown){
       randomIndex = Math.floor(Math.random() * 81) + 0;
-      if(!this.viewableSolution.includes(randomIndex)){
+      if(this.viewableSolution.indexOf(randomIndex)<0){
         this.viewableSolution.push(randomIndex);
         counter = counter + 1;      }
     }
@@ -58,7 +58,7 @@ export class GameboardComponent implements OnInit {
   buildInitialGameboard(){
     for (let i = 0; i< 81; i++){
       let numberInput: NumberInput = new NumberInput;
-      if(this.viewableSolution.includes(i)){
+      if(this.viewableSolution.indexOf(i)>=0){
         numberInput.guess=this.solution[i];
         numberInput.correct=true;
       }
@@ -72,12 +72,11 @@ export class GameboardComponent implements OnInit {
 
   setSelectedNumberBox(selectedInputBox: NumberInput): void{
     this.selectedNumberBox = selectedInputBox;
-    console.log(this.selectedNumberBox.guess);
     }
 
   addNumberToNotes(selectedNumber: number){
     let currentNotes = this.selectedNumberBox.notes
-    if(currentNotes.includes(selectedNumber)){
+    if(currentNotes.indexOf(selectedNumber)>=0){
       let index = currentNotes.indexOf(selectedNumber)
       currentNotes.splice(index, 1);
     }else{

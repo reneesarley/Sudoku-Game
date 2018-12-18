@@ -10,8 +10,8 @@
               (click) ="setSelectedNumberBox(input)"
               id={{j}} class="col-sm numberBox"
               [attr.hidden]="selectedNumberBox === input && noteModeOn === true && input.correct != true? '': null"
-              [class.gameWon]='!smileIndex.includes(j)&&gameWon === true'
-              [class.smile]='smileIndex.includes(j) && gameWon===true'
+              [class.gameWon]='!smileIndex.indexOf(j) >= 0 &&gameWon === true'
+              [class.smile]='smileIndex.indexOf(j) >=0 && gameWon===true'
               [class.outerLeft]="(j%9)===0"
               [class.outerRight]="(j+1)%9===0"
               [class.outerTop]= "j<9"
@@ -82,11 +82,11 @@
       <div class=" row">
         <div *ngFor="let number of [1, 2, 3, 4, 5, 6, 7, 8, 9]" class="col-3-sm col-xs">
           <button
-          *ngIf='!selectedNumberBox.notes.includes(number)'
+          *ngIf='selectedNumberBox.notes.indexOf(number)<0'
           class="numberBtns btn btn-sm "
           [class.active]="noteModeOn"
-          [class.removeNumber]="selectedNumberBox.notes.includes(number)"
-          [class.addNumber]="!selectedNumberBox.notes.includes(number)"
+          [class.removeNumber]="selectedNumberBox.notes.indexOf(number)>=0"
+          [class.addNumber]="selectedNumberBox.notes.indexOf(number)<0"
           (click)="addNumberToNotes(number)">
            {{number}}
           </button>
@@ -98,11 +98,11 @@
       <div class=" row">
         <div *ngFor="let number of [1, 2, 3, 4, 5, 6, 7, 8, 9]" class="col-3-sm col-xs">
           <button
-          *ngIf='selectedNumberBox.notes.includes(number)'
+          *ngIf='selectedNumberBox.notes.indexOf(number)>=0'
           class="numberBtns btn btn-sm "
           [class.active]="noteModeOn"
-          [class.removeNumber]="selectedNumberBox.notes.includes(number)"
-          [class.addNumber]="!selectedNumberBox.notes.includes(number)"
+          [class.removeNumber]="selectedNumberBox.notes.indexOf(number)>=0"
+          [class.addNumber]="selectedNumberBox.notes.indexOf(number)<0"
           (click)="addNumberToNotes(number)">
            {{number}}
           </button>
